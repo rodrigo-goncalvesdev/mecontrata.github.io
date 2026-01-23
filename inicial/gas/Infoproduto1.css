@@ -4,42 +4,34 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
     background: #f9f9f9;
     color: #333;
 }
-
-/* Seções principais */
 .hero {
     text-align: center;
     padding: 40px 20px;
     background-color: #ffcc00;
 }
-
 .features {
     display: flex;
     justify-content: center;
     gap: 15px;
     padding: 40px 20px;
 }
-
 .features img {
     width: 30%;
     height: auto;
     border-radius: 12px;
     background: #ddd;
 }
-
 .order {
     text-align: center;
     padding: 40px 20px;
 }
-
 .order-box {
     margin-top: 15px;
 }
-
 .order input[type="number"] {
     width: 60px;
     padding: 10px;
@@ -48,18 +40,15 @@ body {
     border-radius: 8px;
     font-size: 16px;
 }
-
 .download {
     text-align: center;
     padding: 40px 20px;
 }
-
 .store-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-
 .btn-store {
     padding: 12px 26px;
     border-radius: 10px;
@@ -68,33 +57,27 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
-
 .ios {
     background: #000;
 }
-
 .android {
     background: #34a853;
 }
-
 .social {
     text-align: center;
     background: #222;
     color: #fff;
     padding: 25px 20px;
 }
-
 .social .icons {
     margin-top: 10px;
 }
-
 .social a {
     color: #fff;
     margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }
-
 .social a:hover {
     text-decoration: underline;
 }

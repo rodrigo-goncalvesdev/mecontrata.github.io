@@ -6,17 +6,13 @@
     <link rel="stylesheet" href="conversor.css">
 </head>
 <body>
-
 <div class="converter">
     <h1>Conversor de Moedas</h1>
-
     <input
         type="number"
         id="valor"
         placeholder="Digite o valor"
-        step="0.01"
-    >
-
+        step="0.01">
     <div class="selects">
         <select id="moedaOrigem">
             <option value="BRL">Real (BRL)</option>
@@ -24,9 +20,7 @@
             <option value="EUR">Euro (EUR)</option>
             <option value="CAD">Dólar Canadense (CAD)</option>
         </select>
-
         <button class="invert" onclick="inverterMoedas()">⇄</button>
-
         <select id="moedaDestino">
             <option value="USD">Dólar (USD)</option>
             <option value="BRL">Real (BRL)</option>
@@ -34,10 +28,8 @@
             <option value="CAD">Dólar Canadense (CAD)</option>
         </select>
     </div>
-
     <p id="resultado">Resultado</p>
 </div>
-
 <script src="conversor.js"></script>
 </body>
 </html>

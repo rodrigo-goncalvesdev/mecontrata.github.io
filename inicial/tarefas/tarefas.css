@@ -2,7 +2,6 @@
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 body {
     background: #ffffff;
     display: flex;
@@ -10,17 +9,13 @@ body {
     padding: 40px;
     transition: .3s;
 }
-
 .dark {
     background: #0f172a;
     color: #e5e7eb;
 }
-
 .hidden {
     display: none;
 }
-
-/* LOGIN */
 .login {
     background: white;
     padding: 25px;
@@ -28,15 +23,12 @@ body {
     width: 300px;
     box-shadow: 0 10px 30px rgba(0,0,0,.15);
 }
-
 .login input, .login button {
     width: 100%;
     margin-bottom: 10px;
     padding: 8px;
     border-radius: 8px;
 }
-
-/* APP */
 .app {
     background: white;
     width: 420px;
@@ -44,22 +36,18 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
-
 .dark .app,
 .dark .login {
     background: #020617;
 }
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
 h1 {
     color: #7c3aed;
 }
-
 button {
     background: #38bdf8;
     border: none;
@@ -68,13 +56,11 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
-
 .new-task {
     display: flex;
     gap: 6px;
     margin: 15px 0;
 }
-
 .task {
     border-left: 6px solid;
     padding: 10px;
@@ -82,18 +68,15 @@ button {
     border-radius: 10px;
     background: #f8fafc;
 }
-
 .dark .task {
     background: #020617;
 }
-
 .list-item {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 6px;
 }
-
 .checked {
     color: #22c55e;
     font-weight: bold;

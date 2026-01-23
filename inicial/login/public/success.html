@@ -14,18 +14,15 @@
       flex-direction: column;
       overflow: hidden;
     }
-
     h1 {
       font-size: 32px;
     }
-
     .confetti {
       position: absolute;
       top: -10px;
       font-size: 24px;
       animation: fall linear infinite;
     }
-
     @keyframes fall {
       to {
         transform: translateY(110vh) rotate(360deg);
@@ -35,7 +32,6 @@
 </head>
 <body>
   <h1>🎉 Parabéns, você fez o login corretamente! 🎉</h1>
-
   <script>
     for (let i = 0; i < 50; i++) {
       const c = document.createElement("div");

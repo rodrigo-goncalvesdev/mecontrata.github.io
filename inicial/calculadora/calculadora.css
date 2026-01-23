@@ -1,11 +1,8 @@
-/* RESET BÁSICO */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-/* BODY */
 body {
     height: 100vh;
     background: #d3d3d3;
@@ -14,8 +11,6 @@ body {
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-/* CONTAINER */
 .container {
     background: #bfbfbf;
     padding: 30px;
@@ -24,15 +19,11 @@ body {
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
 }
-
-/* TÍTULO */
 h1 {
     font-size: 20px;
     margin-bottom: 15px;
     color: #333;
 }
-
-/* DISPLAY */
 #display {
     width: 100%;
     height: 50px;
@@ -44,15 +35,11 @@ h1 {
     border: none;
     outline: none;
 }
-
-/* GRID DE BOTÕES */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
 }
-
-/* BOTÕES */
 .buttons button {
     height: 45px;
     font-size: 16px;
@@ -62,13 +49,10 @@ h1 {
     background: #e0e0e0;
     transition: transform 0.15s ease; 
 }
-
 .buttons button:hover {
     background: #d0d0d0;
     transform: scale(1.05);
 }
-
-/* BOTÃO VOLTAR */
 .back {
     position: fixed;
     bottom: 30px;
@@ -86,13 +70,10 @@ h1 {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.078);
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
-
 .back:hover {
     opacity: 0.9;
     transform: translateX(-50%) scale(1.08);
 }
-
-/* RESPONSIVO */
 @media (max-width: 600px) {
     .back {
         left: 50%;

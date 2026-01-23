@@ -27,7 +27,6 @@ body {
     from { transform: translateY(-100%); }
     to   { transform: translateY(110vh); }
 }
-/*TEXTO*/
 .question {
     position: absolute;
     top: 42%;

@@ -1,12 +1,9 @@
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, Helvetica, sans-serif;
 }
-
-/* BODY */
 body {
   height: 100vh;
   background: #0f172a;
@@ -14,8 +11,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-/* CONTAINER PRINCIPAL */
 .container {
   width: 900px;
   height: 450px;
@@ -24,8 +19,6 @@ body {
   overflow: hidden;
   box-shadow: 0 20px 50px rgba(0,0,0,0.6);
 }
-
-/* LADO ESQUERDO (FORMULÁRIOS) */
 .right {
   width: 50%;
   background: #07031a;
@@ -35,14 +28,11 @@ body {
   flex-direction: column;
   justify-content: center;
 }
-
 .right h2 {
   color: #ffffff;
   margin-bottom: 15px;
   font-size: 26px;
 }
-
-/* INPUTS */
 input {
   width: 100%;
   padding: 13px;
@@ -55,12 +45,9 @@ input {
   border: 1px solid #1e293b;
   color: white;
 }
-
 input:focus {
   border-color: #22c55e;
 }
-
-/* LINKS */
 .link {
   margin-top: 10px;
   font-size: 14px;
@@ -68,20 +55,15 @@ input:focus {
   cursor: pointer;
   width: fit-content;
 }
-
 .link:hover {
   text-decoration: underline;
 }
-
-/* ERROS */
 .error {
   margin-top: 10px;
   color: #ef4444;
   font-size: 14px;
   min-height: 18px;
 }
-
-/* BOTÕES */
 button {
   width: 100%;
   padding: 13px;
@@ -95,23 +77,18 @@ button {
   font-weight: bold;
   transition: 0.2s;
 }
-
 button:hover {
   background: #16a34a;
 }
-
 button.secondary {
   background: transparent;
   border: 1px solid #22c55e;
   color: #22c55e;
 }
-
 button.secondary:hover {
   background: #22c55e;
   color: #020617;
 }
-
-/* LADO DIREITO (MENSAGEM) */
 .left {
   width: 50%;
   background: linear-gradient(135deg, #22c55e, #16a34a);
@@ -123,31 +100,25 @@ button.secondary:hover {
   padding: 30px;
   text-align: center;
 }
-
 .left h1 {
   font-size: 34px;
   margin-bottom: 10px;
-  color: #ffffff; /* FORÇA BRANCO */
+  color: #ffffff; 
 }
-
 .left p {
   font-size: 16px;
   opacity: 0.95;
-  color: #ffffff; /* FORÇA BRANCO */
+  color: #ffffff;
 }
-
-/* RESPONSIVO */
 @media (max-width: 900px) {
   .container {
     width: 95%;
     height: auto;
     flex-direction: column;
   }
-
   .left, .right {
     width: 100%;
   }
-
   .left {
     padding: 40px 20px;
   }

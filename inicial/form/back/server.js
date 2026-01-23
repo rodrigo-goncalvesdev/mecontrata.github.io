@@ -3,28 +3,19 @@ const sqlite3 = require("sqlite3").verbose();
 const cors = require("cors");
 const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
-
 const app = express();
 const PORT = 3000;
-
-/* ===== SEGURANÇA ===== */
 app.use(helmet());
-
 app.use(cors({
   origin: "*",
   methods: ["GET", "POST"]
 }));
-
 app.use(express.json());
-
 app.use(rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100
 }));
-
-/* ===== BANCO DE DADOS ===== */
 const db = new sqlite3.Database("./database.db");
-
 db.run(`
   CREATE TABLE IF NOT EXISTS profiles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -37,17 +28,11 @@ db.run(`
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
   )
 `);
-
-/* ===== ROTAS ===== */
-
-// Verificar CPF
 app.post("/check-cpf", (req, res) => {
   const { cpf } = req.body;
-
   if (!cpf || cpf.length !== 11) {
     return res.json({ exists: false });
   }
-
   db.get(
     "SELECT id FROM profiles WHERE cpf = ?",
     [cpf],
@@ -59,24 +44,19 @@ app.post("/check-cpf", (req, res) => {
     }
   );
 });
-
-// Salvar perfil
 app.post("/profile", (req, res) => {
   const { nome, cpf, email, nascimento, cep, endereco } = req.body;
-
   if (!nome || !cpf || !email || !nascimento || !cep || !endereco) {
     return res.json({
       success: false,
       message: "Preencha todos os campos"
     });
   }
-
   const sql = `
     INSERT INTO profiles
     (nome, cpf, email, nascimento, cep, endereco)
     VALUES (?, ?, ?, ?, ?, ?)
   `;
-
   db.run(
     sql,
     [nome, cpf, email, nascimento, cep, endereco],
@@ -88,18 +68,15 @@ app.post("/profile", (req, res) => {
             message: "CPF já cadastrado"
           });
         }
-
         return res.status(500).json({
           success: false,
           message: "Erro ao salvar"
         });
       }
-
       res.json({ success: true });
     }
   );
 });
-
 app.get("/profiles", (req, res) => {
   db.all(
     "SELECT id, nome, email, nascimento, cep, endereco, created_at FROM profiles",
@@ -111,7 +88,6 @@ app.get("/profiles", (req, res) => {
           message: "Erro ao buscar dados"
         });
       }
-
       res.json({
         success: true,
         data: rows
@@ -119,9 +95,6 @@ app.get("/profiles", (req, res) => {
     }
   );
 });
-
-
-/* ===== START SERVER ===== */
 app.listen(PORT, () => {
   console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

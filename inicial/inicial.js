@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
 let posX = 0;
 let posY = 0;
 function positionNoNextToYes() {
-    
     const yesRect = yesBtn.getBoundingClientRect();
     const noRect  = noBtn.getBoundingClientRect();
     const gap = 40;
