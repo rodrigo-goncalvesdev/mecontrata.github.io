@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login OK</title>
+  <style>
+    body {
+      background: #020617;
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 32px;
+    }
+
+    .confetti {
+      position: absolute;
+      top: -10px;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>🎉 Parabéns, você fez o login corretamente! 🎉</h1>
+
+  <script>
+    for (let i = 0; i < 50; i++) {
+      const c = document.createElement("div");
+      c.className = "confetti";
+      c.textContent = "🎊";
+      c.style.left = Math.random() * 100 + "vw";
+      c.style.animationDuration = 2 + Math.random() * 3 + "s";
+      document.body.appendChild(c);
+    }
+  </script>
+</body>
+</html>

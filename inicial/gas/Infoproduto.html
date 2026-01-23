@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Delivery de Gás</title>
+    <link rel="stylesheet" href="Infoproduto1.css">
+</head>
+<body>
+    <section class="hero">
+        <h1>Peça seu Gás com Rapidez e Segurança</h1>
+        <p>Receba seu botijão em poucos minutos!</p>
+    </section>
+
+    <!-- 3 imagens lado a lado -->
+    <section class="features">
+        <img src="Imagem/pediu.png" alt="Imagem 1">
+        <img src="Imagem/chegou.png" alt="Imagem 2">
+        <img src="Imagem/baixe.png" alt="Imagem 3">
+    </section>
+
+    <!-- Botões para baixar o app -->
+    <section class="download">
+        <h2>Baixe nosso aplicativo</h2>
+        <div class="store-buttons">
+            <a href="https://www.apple.com/br/store" class="btn-store ios">Baixar no iOS</a>
+            <a href="https://play.google.com/store/games?device=windows&&utm_source=latam_Med&utm_medium=hasem&utm_content=Dec1622&utm_campaign=Evergreen&pcampaignid=MKT-EDR-latam-br-1710138-Med-hasem-py-Evergreen-Dec1622-Text_Search_BKWS-id_102355_%7CEXA%7CONSEM_kwid_34087548205_adgroupid_143609464783_keywordid_kwd-34087548205&gad_source=1&gad_campaignid=19496497106&gclid=CjwKCAiA0eTJBhBaEiwA-Pa-hXbRBGkQ0hDOg_qOMhspDRf3r3t7CD16wYfRiTtlcDhwkcN_NYD6_xoCsK8QAvD_BwE" class="btn-store android">Baixar no Android</a>
+        </div>
+    </section>
+
+    <!-- Redes sociais -->
+    <footer class="social">
+        <p>Siga nossas redes sociais</p>
+        <div class="icons">
+            <a href="https://www.instagram.com/utilgasdf/" class="instagram">Instagram</a>
+            <a href="https://www.facebook.com/utilgasdf/?locale=pt_BR" class="facebook">Facebook</a>
+            <br></br>
+            <h5>ESTE SITE É APENAS DEMONSTRATIVO PARA PORTFOLIO. O APP NÃO EXISTE.</h5>
+        </div>
+        <audio id="bgmusic" preload="auto">
+  <source src="Som/ogas_curto.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Tocar o áudio assim que o usuário interagir com a página
+  document.addEventListener('click', function() {
+    const audio = document.getElementById('bgmusic');
+    audio.muted = false; // ativa o som
+    audio.play();
+  }, { once: true });
+</script>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    background-color: #111827;
+    overflow: hidden;
+    position: relative;
+}
+.binary-background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+.binary {
+    position: absolute;
+    top: 0;
+    color: #4ade8017;
+    font-family: monospace;
+    will-change: transform;
+}
+@keyframes fall {
+    from {
+        transform: translateY(-40px);
+    }
+    to {
+        transform: translateY(110vh);
+    }
+}
+.question {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #E5E7EB;
+    font-size: 22px;
+    text-align: center;
+    z-index: 2;
+}
+.cards {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    z-index: 2;
+}
+.card {
+    height: 120px;
+    background: rgba(10, 31, 51, 0.35);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #E5E7EB;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    position: relative;
+    z-index: 3;
+}
+.card:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+.back {
+    position: fixed;
+    bottom: 30px;
+    left: 80%;
+    transform: translateX(-50%);
+    background: #ffffff1f;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+.back:hover {
+    opacity: 0.9;
+    transform: translateX(-50%) scale(1.05);
+}

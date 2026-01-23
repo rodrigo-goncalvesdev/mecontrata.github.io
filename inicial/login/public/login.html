@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <h1>Seja bem-vindo!</h1>
+    <p>Faça login ao lado e aproveite.</p>
+  </div>
+
+  <div class="right">
+    <h2>Login</h2>
+
+    <input type="email" id="email" placeholder="Digite seu email">
+    <p class="link">Esqueci o email</p>
+
+    <p class="error" id="error"></p>
+
+    <div id="passwordBox" style="display:none;">
+      <input type="password" id="password" placeholder="Digite sua senha">
+    </div>
+
+    <button onclick="avancar()">Avançar</button>
+    <button class="secondary" onclick="window.location.href='register.html'">
+      Primeiro acesso
+    </button>
+  </div>
+
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
