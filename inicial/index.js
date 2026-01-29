@@ -63,6 +63,6 @@ window.addEventListener("resize", () => {
     binaryBg.innerHTML = "";
 });
 yesBtn.addEventListener("click", () => {
-    window.location.href = "/Projetos/mecontrata/inicial/sim.html";
+    window.location.href = "./sim.html";
 });
 });
