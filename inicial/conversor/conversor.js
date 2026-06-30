@@ -19,13 +19,16 @@ async function converter() {
         resultado.textContent =
             `${valorFormatado} ${moedaOrigem.value} = ${valorFormatado} ${moedaDestino.value}`;
         return;
-    }
+        }
     try {
         const response = await fetch(
-            `https://api.frankfurter.app/latest?amount=${valor}&from=${moedaOrigem.value}&to=${moedaDestino.value}`
+    `https://open.er-api.com/v6/latest/${moedaOrigem.value}`
         );
+
         const data = await response.json();
-        const convertido = data.rates[moedaDestino.value];
+
+        const taxa = data.rates[moedaDestino.value];
+        const convertido = valor * taxa;
         const valorFormatado = new Intl.NumberFormat("pt-BR", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2
