@@ -14,7 +14,7 @@ async function converter() {
 
     try {
         const response = await fetch(
-            `https://open.er-api.com/v6/latest/${moedaOrigem.value}`
+        `https://open.er-api.com/v6/latest/${moedaOrigem.value}`
         );
 
         const data = await response.json();
