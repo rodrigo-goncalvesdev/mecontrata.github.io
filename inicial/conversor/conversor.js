@@ -1,31 +1,90 @@
+const valorInput = document.getElementById("valor");
+const moedaOrigem = document.getElementById("moedaOrigem");
+const moedaDestino = document.getElementById("moedaDestino");
+const resultado = document.getElementById("resultado");
+
+valorInput.addEventListener("input", converter);
+moedaOrigem.addEventListener("change", converter);
+moedaDestino.addEventListener("change", converter);
+
 async function converter() {
+
     const valor = parseFloat(valorInput.value);
 
-    if (!valor || valor <= 0) {
+    if (isNaN(valor) || valor <= 0) {
         resultado.textContent = "Resultado";
         return;
     }
 
     if (moedaOrigem.value === moedaDestino.value) {
+
+        const valorFormatado = new Intl.NumberFormat("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(valor);
+
         resultado.textContent =
-            `${valor.toFixed(2)} ${moedaOrigem.value} = ${valor.toFixed(2)} ${moedaDestino.value}`;
+            `${valorFormatado} ${moedaOrigem.value} = ${valorFormatado} ${moedaDestino.value}`;
+
         return;
     }
 
     try {
+
         const response = await fetch(
-        `https://open.er-api.com/v6/latest/${moedaOrigem.value}`
+            `https://open.er-api.com/v6/latest/${moedaOrigem.value}`
         );
+
+        if (!response.ok) {
+            throw new Error("Erro ao acessar a API.");
+        }
 
         const data = await response.json();
 
+        console.log(data);
+
+        if (data.result !== "success") {
+            throw new Error("A API retornou erro.");
+        }
+
         const taxa = data.rates[moedaDestino.value];
+
+        if (!taxa) {
+            throw new Error("Moeda não encontrada.");
+        }
+
         const convertido = valor * taxa;
 
+        const valorFormatado = new Intl.NumberFormat("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(valor);
+
+        const convertidoFormatado = new Intl.NumberFormat("pt-BR", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        }).format(convertido);
+
         resultado.textContent =
-            `${valor.toFixed(2)} ${moedaOrigem.value} = ${convertido.toFixed(2)} ${moedaDestino.value}`;
+            `${valorFormatado} ${moedaOrigem.value} = ${convertidoFormatado} ${moedaDestino.value}`;
 
     } catch (erro) {
-        resultado.textContent = "Erro ao buscar cotação.";
+
+        console.error("Erro:", erro);
+
+        resultado.textContent =
+            "Não foi possível obter a cotação.";
+
     }
+
+}
+
+function inverterMoedas() {
+
+    const temp = moedaOrigem.value;
+    moedaOrigem.value = moedaDestino.value;
+    moedaDestino.value = temp;
+
+    converter();
+
 }
