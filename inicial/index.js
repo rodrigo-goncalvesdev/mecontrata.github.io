@@ -10,8 +10,12 @@ function positionNoNextToYes() {
     const yesRect = yesBtn.getBoundingClientRect();
     const noRect  = noBtn.getBoundingClientRect();
     const gap = 40;
-    posX = yesRect.right + gap;
-    posY = yesRect.top + (yesRect.height - noRect.height) / 2;
+    const pad = 16;
+    posX = Math.min(yesRect.right + gap, window.innerWidth - noRect.width - pad);
+    posY = Math.min(
+        Math.max(yesRect.top + (yesRect.height - noRect.height) / 2, pad),
+        window.innerHeight - noRect.height - pad
+    );
     noBtn.style.left = "0";
     noBtn.style.top  = "0";
     noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
@@ -36,10 +40,10 @@ function flee() {
     const pad = 16;
     const area = overlay.getBoundingClientRect();
     const btn  = noBtn.getBoundingClientRect();
-    const maxX = area.width  - btn.width  - pad;
-    const maxY = area.height - btn.height - pad;
-    posX = Math.random() * maxX + pad;
-    posY = Math.random() * maxY + pad;
+    const maxX = Math.max(pad, area.width - btn.width - pad);
+    const maxY = Math.max(pad, area.height - btn.height - pad);
+    posX = pad + Math.random() * Math.max(0, maxX - pad);
+    posY = pad + Math.random() * Math.max(0, maxY - pad);
     noBtn.style.transform = `translate(${posX}px, ${posY}px)`;
 }
 const binaryBg = document.getElementById("binaryBg");
