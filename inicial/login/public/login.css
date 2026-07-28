@@ -5,15 +5,17 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 body {
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background: #0f172a;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 24px 16px;
 }
 .container {
-  width: 900px;
-  height: 450px;
+  width: min(100%, 900px);
+  min-height: 450px;
   display: flex;
   border-radius: 14px;
   overflow: hidden;
@@ -21,18 +23,24 @@ body {
 }
 .left {
   width: 50%;
+  min-height: 100%;
   background: linear-gradient(135deg, #22c55e, #16a34a);
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 10px;
+  padding: clamp(28px, 6vw, 48px);
   text-align: center;
+}
+.left h1 {
+  font-size: clamp(26px, 5vw, 36px);
 }
 .right {
   width: 50%;
   background: #020617;
-  padding: 45px;
+  padding: clamp(28px, 6vw, 45px);
   color: white;
   display: flex;
   flex-direction: column;
@@ -41,16 +49,21 @@ body {
 .right h2 {
   color: white;
   margin-bottom: 10px;
+  font-size: clamp(24px, 5vw, 30px);
 }
 input {
+  width: 100%;
+  min-height: 46px;
   padding: 13px;
   margin-top: 14px;
   border-radius: 8px;
   border: 1px solid #1e293b;
   background: #020617;
   color: white;
+  font-size: 16px;
 }
 button {
+  min-height: 46px;
   margin-top: 16px;
   padding: 13px;
   border-radius: 8px;
@@ -58,6 +71,7 @@ button {
   background: #22c55e;
   font-weight: bold;
   cursor: pointer;
+  touch-action: manipulation;
 }
 button.secondary {
   background: transparent;
@@ -65,6 +79,7 @@ button.secondary {
   color: #22c55e;
 }
 .error {
+  overflow-wrap: anywhere;
   margin-top: 10px;
   color: #ef4444;
 }
@@ -72,4 +87,26 @@ button.secondary {
   margin-top: 10px;
   color: #22c55e;
   cursor: pointer;
+}
+@media (max-width: 700px) {
+  body {
+    align-items: flex-start;
+  }
+  .container {
+    max-width: 480px;
+    min-height: 0;
+    flex-direction: column;
+  }
+  .left,
+  .right {
+    width: 100%;
+  }
+  .left {
+    min-height: 180px;
+  }
+}
+@media (max-width: 380px) {
+  body { padding: 12px; }
+  .left,
+  .right { padding: 24px 18px; }
 }
