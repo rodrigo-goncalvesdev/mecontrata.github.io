@@ -4,23 +4,25 @@
     box-sizing: border-box;
 }
 body {
-    height: 100vh;
+    min-height: 100vh;
+    min-height: 100dvh;
     background: #d3d3d3;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 24px 16px 96px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .container {
     background: #bfbfbf;
-    padding: 30px;
+    padding: clamp(18px, 5vw, 30px);
     border-radius: 15px;
-    width: 320px;
+    width: min(100%, 320px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
     text-align: center;
 }
 h1 {
-    font-size: 20px;
+    font-size: clamp(18px, 5vw, 20px);
     margin-bottom: 15px;
     color: #333;
 }
@@ -37,17 +39,19 @@ h1 {
 }
 .buttons {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(6px, 2.5vw, 10px);
 }
 .buttons button {
-    height: 45px;
+    min-width: 0;
+    height: clamp(42px, 13vw, 48px);
     font-size: 16px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     background: #e0e0e0;
-    transition: transform 0.15s ease; 
+    transition: transform 0.15s ease;
+    touch-action: manipulation;
 }
 .buttons button:hover {
     background: #d0d0d0;
@@ -55,28 +59,32 @@ h1 {
 }
 .back {
     position: fixed;
-    bottom: 30px;
-    left: 80%;
+    bottom: max(20px, env(safe-area-inset-bottom));
+    left: 50%;
     transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.347);
+    width: max-content;
+    max-width: calc(100% - 32px);
+    background: rgba(0, 0, 0, 0.55);
     color: #ffffff;
     padding: 12px 24px;
     border-radius: 30px;
     font-size: 15px;
     font-weight: bold;
+    text-align: center;
     text-decoration: none;
-    cursor: pointer;
     z-index: 999;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.078);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, opacity 0.2s ease;
 }
 .back:hover {
     opacity: 0.9;
-    transform: translateX(-50%) scale(1.08);
+    transform: translateX(-50%) scale(1.05);
 }
-@media (max-width: 600px) {
-    .back {
-        left: 50%;
-        bottom: 20px;
-    }
+@media (max-width: 360px) {
+    body { padding-inline: 10px; }
+    .container { padding-inline: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .buttons button,
+    .back { transition: none; }
 }
