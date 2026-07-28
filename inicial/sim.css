@@ -5,11 +5,14 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 body {
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
     background-color: #111827;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     position: relative;
+    padding: clamp(72px, 12vh, 120px) 20px 48px;
 }
 .binary-background {
     position: fixed;
@@ -36,29 +39,25 @@ body {
     }
 }
 .question {
-    position: absolute;
-    top: 18%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     color: #E5E7EB;
-    font-size: 22px;
+    font-size: clamp(20px, 4vw, 28px);
     text-align: center;
     z-index: 2;
 }
 .cards {
-    position: absolute;
-    top: 32%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
+    position: relative;
+    width: min(100%, 900px);
+    margin: clamp(32px, 7vh, 64px) auto 0;
     max-width: 900px;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(16px, 3vw, 24px);
     z-index: 2;
 }
 .card {
-    height: 120px;
+    min-height: 120px;
+    padding: 20px;
     background: rgba(10, 31, 51, 0.35);
     border-radius: 18px;
     display: flex;
@@ -72,6 +71,41 @@ body {
     transition: transform 0.25s ease, opacity 0.25s ease;
     position: relative;
     z-index: 3;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding-top: 64px;
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding-inline: 16px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        margin-top: 28px;
+    }
+
+    .card {
+        min-height: 88px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .binary {
+        display: none;
+    }
+
+    .card {
+        transition: none;
+    }
 }
 .card:hover {
     transform: scale(1.08);
